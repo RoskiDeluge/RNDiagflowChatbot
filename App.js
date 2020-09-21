@@ -3,7 +3,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Text, View, Image} from 'react-native';
 import {GiftedChat} from 'react-native-gifted-chat';
 import {Dialogflow_V2} from 'react-native-dialogflow';
-import {dialogflowConfig} from './env';
+import {dialogflowConfig} from './env.js';
 
 const BOT_USER = {
   _id: 2,
@@ -46,6 +46,7 @@ class App extends Component {
   }
 
   handleGoogleResponse(result) {
+    console.log('rd: handleGoogleResponse, result: ', result);
     let text = result.queryResult.fulfillmentMessages[0].text.text[0];
     this.sendBotResponse(text);
   }
